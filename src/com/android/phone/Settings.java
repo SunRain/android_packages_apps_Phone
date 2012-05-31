@@ -568,6 +568,14 @@ public class Settings extends PreferenceActivity implements DialogInterface.OnCl
                 mButtonPreferredNetworkMode.setSummary(
                         R.string.preferred_network_mode_lte_gsm_summary);
                 break;
+            case Phone.NT_MODE_LTE_CDMA_EVDO:
+                mButtonPreferredNetworkMode.setSummary(
+                        R.string.preferred_network_mode_lte_cdma_evdo_summary);
+                break;
+            case Phone.NT_MODE_LTE_CMDA_EVDO_GSM_WCDMA:
+                mButtonPreferredNetworkMode.setSummary(
+                        R.string.preferred_network_mode_lte_cdma_evdo_gsm_wcdma_summary);
+                break;
             case Phone.NT_MODE_GLOBAL:
             default:
                 mButtonPreferredNetworkMode.setSummary(
