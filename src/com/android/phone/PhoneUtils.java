@@ -241,8 +241,8 @@ public class PhoneUtils {
         final PhoneApp app = PhoneApp.getInstance();
 
         // If the ringer is currently ringing and/or vibrating, stop it
-        // right now (before actually answering the call.)
-        app.getRinger().stopRing();
+        // right now and prevent new rings (before actually answering the call.)
+        app.notifier.silenceRinger();
 
         boolean answered = false;
         Phone phone = ringing.getPhone();
@@ -992,7 +992,7 @@ public class PhoneUtils {
                 if (DBG) log("- using text from PENDING MMI message: '" + text + "'");
                 break;
             case CANCELLED:
-                text = context.getText(R.string.mmiCancelled);
+                text = null;
                 break;
             case COMPLETE:
                 if (app.getPUKEntryActivity() != null) {
@@ -1059,10 +1059,10 @@ public class PhoneUtils {
                     } catch (RemoteException e) {
                         mNwService = null;
                     }
-                    if (DBG) log("Extended NW displayMMIInitiate (" + text + ")");
-                    if (text == null || text.length() == 0)
-                        return;
                 }
+                if (DBG) log("Extended NW displayMMIInitiate (" + text + ")");
+                if (text == null || text.length() == 0)
+                    return;
 
                 // displaying system alert dialog on the screen instead of
                 // using another activity to display the message.  This
