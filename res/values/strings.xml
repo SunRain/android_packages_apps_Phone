@@ -458,8 +458,8 @@
         <item>LTE ONLY</item>
         <item>LTE / CMDA / EvDo / GSM / WCDMA</item>
         <item>LTE / CDMA</item>
-        <item>CDMA</item>
-        <item>GSM only</item>
+        <item>CDMA / EvDo auto</item>
+        <item>GSM only (only to get data up)</item>
     </string-array>
     <string-array name="preferred_network_mode_values_lte" translatable="false">
         <item>"11"</item>
